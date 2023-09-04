@@ -40,4 +40,4 @@ python app.py
 ![Screenshot 2023-09-04 182736](https://github.com/Harshpatel97/Tomato-Classification/assets/129877052/909850f2-2984-4348-962c-66a226715335)
 
 
-![alt text] ("C:\Users\harsh\OneDrive\Pictures\Screenshots\Screenshot 2023-09-04 182747.png")
+![Screenshot 2023-09-04 182747](https://github.com/Harshpatel97/Tomato-Classification/assets/129877052/466e9b88-5a55-4518-8cf9-b701e32535b4)
