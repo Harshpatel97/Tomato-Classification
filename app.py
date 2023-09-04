@@ -38,7 +38,9 @@ class_names = ['Bacterial_spot',
                  'Two_spotted_spider_mite']
 
 model = torchvision.models.efficientnet_b2().cpu
-saved_model = torch.load(r"E:\gradio\models\model.pth", map_location=torch.device('cpu'))
+
+## Provide the model.pth path from your models folder..
+saved_model = torch.load(r"E:\Tomato-Classification\models\model.pth", map_location=torch.device('cpu'))
 
 
 def predict(img) -> Tuple[Dict, float]:
