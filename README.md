@@ -30,11 +30,14 @@ https://drive.google.com/file/d/1rneHpIpV0pwDhV27mh8R2caJ9Yx6WTxZ/view?usp=shari
 https://drive.google.com/file/d/1t9G2HjXHZbM_VHQvhFYfrz5T7nIxnTmP/view?usp=sharing
 
 
-Make sure to provide a model.pth Path to saved_model variable in app.py
+## Make sure to provide a model.pth(Path) to saved_model variable in app.py
 
 ```bash
 # Finally run the following command
 python app.py
 ```
 
+![alt text] ("C:\Users\harsh\OneDrive\Pictures\Screenshots\Screenshot 2023-09-04 182736.png")
 
+
+![alt text] ("C:\Users\harsh\OneDrive\Pictures\Screenshots\Screenshot 2023-09-04 182747.png")
