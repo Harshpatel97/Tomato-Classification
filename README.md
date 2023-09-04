@@ -37,7 +37,7 @@ https://drive.google.com/file/d/1t9G2HjXHZbM_VHQvhFYfrz5T7nIxnTmP/view?usp=shari
 python app.py
 ```
 
-![alt text] ("C:\Users\harsh\OneDrive\Pictures\Screenshots\Screenshot 2023-09-04 182736.png")
+![Screenshot 2023-09-04 182736](https://github.com/Harshpatel97/Tomato-Classification/assets/129877052/909850f2-2984-4348-962c-66a226715335)
 
 
 ![alt text] ("C:\Users\harsh\OneDrive\Pictures\Screenshots\Screenshot 2023-09-04 182747.png")
