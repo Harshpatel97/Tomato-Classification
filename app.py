@@ -18,7 +18,6 @@ from timeit import default_timer as timer
 import gradio as gr
 
 
-loc = Path("E:\Tomato-Classification\Data\PlantVillage")
 
 data_transform = transforms.Compose([
     transforms.Resize(size=(224,224)),
@@ -40,7 +39,7 @@ class_names = ['Bacterial_spot',
 model = torchvision.models.efficientnet_b2().cpu
 
 ## Provide the model.pth path from your models folder..
-saved_model = torch.load(r"E:\Tomato-Classification\models\model.pth", map_location=torch.device('cpu'))
+saved_model = torch.load(r"models\model.pth", map_location=torch.device('cpu'))
 
 
 def predict(img) -> Tuple[Dict, float]:
@@ -67,10 +66,6 @@ def predict(img) -> Tuple[Dict, float]:
     # Return the prediction dictionary and prediction time 
     return pred_labels_and_probs, pred_time
 
-test_data_paths = list(loc.glob("*/*.jpg"))
-example_list = [[str(filepath)] for filepath in random.sample(test_data_paths, k=3)]
-example_list
-
 # Create title, description and article strings
 title = "Tomato Leaf Disease "
 description = "An EfficientNetB2 feature extractor computer vision model to classify images of tomato leaf if they are healthy or infected"
@@ -79,8 +74,7 @@ description = "An EfficientNetB2 feature extractor computer vision model to clas
 demo = gr.Interface(fn=predict, # mapping function from input to output
                     inputs=gr.Image(type="pil"), # what are the inputs?
                     outputs=[gr.Label(num_top_classes=3, label="Predictions"), # what are the outputs?
-                             gr.Number(label="Prediction time (s)")], # our fn has two outputs, therefore we have two outputs
-                    examples=example_list, 
+                             gr.Number(label="Prediction time (s)")], # our fn has two outputs, therefore we have two outputs 
                     title=title,
                     description=description)
 
