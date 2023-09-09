@@ -1,4 +1,11 @@
 
+
+## Upload Your Custom Tomato Leaf Image or Select any one from below and Click on Sumbit or Simply Drag and drop the image
+![Screenshot 2023-09-04 182736](https://github.com/Harshpatel97/Tomato-Classification/assets/129877052/909850f2-2984-4348-962c-66a226715335)
+
+## This will show the predictions of model with top three probabilities from classes
+![Screenshot 2023-09-04 182747](https://github.com/Harshpatel97/Tomato-Classification/assets/129877052/466e9b88-5a55-4518-8cf9-b701e32535b4)
+
 # How to run?
 ### STEPS:
  
@@ -36,8 +43,5 @@ https://drive.google.com/file/d/1t9G2HjXHZbM_VHQvhFYfrz5T7nIxnTmP/view?usp=shari
 # Finally run the following command
 python app.py
 ```
-## Upload Your Custom Tomato Leaf Image or Select any one from below and Click on Sumbit or Simply Drag and drop the image
-![Screenshot 2023-09-04 182736](https://github.com/Harshpatel97/Tomato-Classification/assets/129877052/909850f2-2984-4348-962c-66a226715335)
 
-## This will show the predictions of model with top three probabilities from classes
-![Screenshot 2023-09-04 182747](https://github.com/Harshpatel97/Tomato-Classification/assets/129877052/466e9b88-5a55-4518-8cf9-b701e32535b4)
+
