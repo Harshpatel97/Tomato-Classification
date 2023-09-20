@@ -1,3 +1,9 @@
+---
+title: Tomato-Classification
+app_file: app.py
+sdk: gradio
+sdk_version: 3.43.1
+---
 
 
 ## Upload Your Custom Tomato Leaf Image or Select any one from below and Click on Sumbit or Simply Drag and drop the image
