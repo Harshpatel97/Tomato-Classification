@@ -1,3 +1,6 @@
+## Overview:
+This project is a plant disease classifier developed using the Plant Village dataset. It leverages various data transformation techniques implemented in PyTorch to enhance model performance. The model used for this project is the state-of-the-art EfficientNetB2, which has been fine-tuned and trained on the dataset to achieve an impressive accuracy of 90.4%.
+
 
 
 ## Upload Your Custom Tomato Leaf Image or Select any one from below and Click on Sumbit or Simply Drag and drop the image
