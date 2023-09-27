@@ -5,3 +5,4 @@ pathlib
 pytest-timeit
 gradio
 torchinfo
+streamlit

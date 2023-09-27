@@ -1,77 +1,25 @@
-from pathlib import Path
+import streamlit as st
+from PIL import Image
+from prediction import predict, data_transform, class_names
 import torch
-import random
-from typing import Tuple, Dict
-from torchvision import transforms
+import warnings
+warnings.filterwarnings("ignore")
 
-from timeit import default_timer as timer 
-import gradio as gr
+# Loading the trainer model from models folder
+saved_model = torch.load("models\model.pth", 
+                         map_location=torch.device('cpu')).to('cpu')
 
-loc = Path("Data\PlantVillage")
+# Heading of our project
+st.header('Tomato leaf Disease Classification.', divider='rainbow')
 
-def predict(img) -> Tuple[Dict, float]:
-    """Transforms and performs a prediction on img and returns prediction and time taken.
-    """
-    data_transform = transforms.Compose([
-        transforms.Resize(size=(224,224)),
-        transforms.ToTensor(),
-        #transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
-    ])
+# Upload you leaf image
+with st.sidebar:
+    imagefile = st.file_uploader("Upload tomato leaf image", type="jpg")
 
-    class_names = ['Bacterial_spot',
-                    'Curl_Virus',
-                    'Early_blight',
-                    'Healthy',
-                    'Late_blight',
-                    'Leaf_Mold',
-                    'Mosaic_virus',
-                    'Septoria_leaf_spot',
-                    'Target_Spot',
-                    'Two_spotted_spider_mite']
+# Process and results
+if imagefile is not None:
+    st.image(imagefile)
 
-    ## Provide the model.pth path from your models folder..
-    saved_model = torch.load("models\model.pth",
-                            map_location=torch.device('cpu') ## If you dont have gpu you have to write this fucntion
-                            )
-    # Start the timer
-    start_time = timer()
-    
-    # Transform the target image and add a batch dimension
-    img = data_transform(img).unsqueeze(0).to('cpu')
-    
-    # Put model into evaluation mode and turn on inference mode
-    saved_model.eval()
-    with torch.inference_mode():
-        # Pass the transformed image through the model and turn the prediction logits into prediction probabilities
-        pred_probs = torch.softmax(saved_model(img), dim=1)
-    
-    # Create a prediction label and prediction probability dictionary for each prediction class (this is the required format for Gradio's output parameter)
-    pred_labels_and_probs = {class_names[i]: float(pred_probs[0][i]) for i in range(len(class_names))}
-    
-    # Calculate the prediction time
-    pred_time = round(timer() - start_time, 5)
-    
-    # Return the prediction dictionary and prediction time 
-    return pred_labels_and_probs, pred_time
-
-## Getting the 3 examples from our data to gradio UI.
-test_data_paths = list(loc.glob("*/*.jpg"))
-example_list = [[str(filepath)] for filepath in random.sample(test_data_paths, k=3)]
-
-# Create title, description and article strings
-title = "Tomato Leaf Disease "
-description = "An EfficientNetB2 feature extractor computer vision model to classify images of tomato leaf if they are healthy or infected"
-
-# Create the Gradio demo
-demo = gr.Interface(fn=predict, # mapping function from input to output
-                    inputs=gr.Image(type="pil"), # what are the inputs?
-                    outputs=[gr.Label(num_top_classes=3, label="Predictions"), # what are the outputs?
-                            gr.Number(label="Prediction time (s)")], # our fn has two outputs, therefore we have two outputs 
-                    title=title,
-                    examples=example_list,
-                    description=description)
-
-# Launch the demo!
-demo.launch(debug=False, # print errors locally?
-            share=True) # generate a publically shareable URL?
-
+    pred = predict(imagefile)
+    st.write("Top three classes with probabilities.")
+    st.dataframe(pred)
