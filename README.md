@@ -1,15 +1,6 @@
-<<<<<<< HEAD
----
-title: Tomato-Classification
-app_file: app.py
-sdk: gradio
-sdk_version: 3.43.1
----
-=======
+
 ## Overview:
 This project is a plant disease classifier developed using the Plant Village dataset. It leverages various data transformation techniques implemented in PyTorch to enhance model performance. The model used for this project is the state-of-the-art EfficientNetB2, which has been fine-tuned and trained on the dataset to achieve an impressive accuracy of 90.4%.
-
->>>>>>> 2c0a6f62ecd9081532d5710143920a9c61b34d73
 
 
 ## Upload Your Custom Tomato Leaf Image or Select any one from below and Click on Sumbit or Simply Drag and drop the image
